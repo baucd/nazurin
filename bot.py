@@ -115,6 +115,7 @@ def main():
 
     if config.ENV == 'production':
         # Webhook mode
+        print('Port number: ' + str(config.PORT) + '\n')
         updater.start_webhook(listen="0.0.0.0", port=config.PORT, url_path=config.TOKEN)
         updater.bot.setWebhook(url=config.WEBHOOK_URL + config.TOKEN, allowed_updates=["message"])
         logger.info('Set webhook')
